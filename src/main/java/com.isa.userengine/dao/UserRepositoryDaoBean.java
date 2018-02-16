@@ -3,14 +3,15 @@ package com.isa.userengine.dao;
 import com.isa.userengine.domain.User;
 import com.isa.userengine.repository.UsersRepository;
 
+import javax.ejb.Stateless;
 import java.util.List;
 
-
+@Stateless
 public class UserRepositoryDaoBean implements UsersRepositoryDao {
 
     @Override
     public void addUser(User user) {
-        UsersRepository.getRepository();
+        UsersRepository.getRepository().add(user);
     }
 
     @Override

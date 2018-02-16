@@ -1,0 +1,16 @@
+com/isa/userengine/dao/UsersRepositoryDao.class
+com/isa/userengine/cdi/RandomUserCDIApplicationDao.class
+com/isa/userengine/cdi/RandomUserCDISessionScoped.class
+com/isa/userengine/repository/UsersRepository.class
+com/isa/userengine/servlets/FindUserByIdServlet.class
+com/isa/userengine/cdi/RandomUserCDISessionDao.class
+com/isa/userengine/Main.class
+com/isa/userengine/servlets/HelloServlet.class
+com/isa/userengine/servlets/RandomUserServlet.class
+com/isa/userengine/dao/UserRepositoryDaoBean.class
+com/isa/userengine/cdi/RandomUserCDIRequestScoped.class
+com/isa/userengine/cdi/RandomUserCDIRequestDao.class
+com/isa/userengine/cdi/RandomUserCDIApplicationDaoBean.class
+com/isa/userengine/servlets/AddUserServlet.class
+com/isa/userengine/servlets/WelcomeUserServlet.class
+com/isa/userengine/domain/User.class

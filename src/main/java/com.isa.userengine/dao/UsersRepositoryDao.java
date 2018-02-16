@@ -2,8 +2,10 @@ package com.isa.userengine.dao;
 
 import com.isa.userengine.domain.User;
 
+import javax.ejb.Local;
 import java.util.List;
 
+@Local
 public interface UsersRepositoryDao {
 
     public void addUser (User user);  // zrobione

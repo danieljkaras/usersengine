@@ -4,6 +4,7 @@ import com.isa.userengine.dao.UserRepositoryDaoBean;
 import com.isa.userengine.dao.UsersRepositoryDao;
 import com.isa.userengine.domain.User;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,8 @@ import java.io.PrintWriter;
 @WebServlet("/find-user-by-id")
 public class FindUserByIdServlet extends HttpServlet {
 
+    @EJB
+    UsersRepositoryDao repositoryDao;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,7 +32,8 @@ public class FindUserByIdServlet extends HttpServlet {
 
         int userId = Integer.parseInt(id);
 
-        UsersRepositoryDao repositoryDao = new UserRepositoryDaoBean();
+
+        // UsersRepositoryDao repositoryDao = new UserRepositoryDaoBean();
         PrintWriter printWriter = resp.getWriter();
         String userData = null;
 

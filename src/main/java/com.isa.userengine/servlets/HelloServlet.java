@@ -1,5 +1,8 @@
 package com.isa.userengine.servlets;
 
+import com.isa.userengine.domain.User;
+import com.isa.userengine.repository.UsersRepository;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +21,12 @@ public class HelloServlet extends HttpServlet {
         printerWriter.write("Hello World from my first Servlet!" + "\n");
         printerWriter.write("Happy After Valentine Day :D ");
 
+
+        for (User user : UsersRepository.getRepository()) {
+            printerWriter.write(user.getId());
+            printerWriter.write(user.getName());
+            printerWriter.println(user.getId() + " " + user.getName());
+        }
 
     }
 }
