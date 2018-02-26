@@ -14,3 +14,4 @@
 /home/danielkaras/development/usersengine/src/main/java/com.isa.userengine/servlets/AddUserServlet.java
 /home/danielkaras/development/usersengine/src/main/java/com.isa.userengine/cdi/RandomUserCDIRequestScoped.java
 /home/danielkaras/development/usersengine/src/main/java/com.isa.userengine/cdi/RandomUserCDIApplicationDao.java
+/home/danielkaras/development/usersengine/src/main/java/com/isa/usersengine/freemarker/TemplateProvider.java

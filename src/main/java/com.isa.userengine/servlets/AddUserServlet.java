@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 @WebServlet("/add-user")
-public class AddUserServlet extends HttpServlet{
+public class AddUserServlet extends HttpServlet {
 
 
     @Override
@@ -36,13 +36,6 @@ public class AddUserServlet extends HttpServlet{
         user.setAge(Integer.parseInt(age));
 
         newUser.addUser(user);
-
-
-
-
-
-
-
 
 
     }

@@ -1,5 +1,11 @@
 package com.isa.userengine.servlets;
 
+import com.isa.userengine.domain.User;
+import com.isa.usersengine.freemarker.TemplateProvider;
+import freemarker.template.Template;
+
+import freemarker.template.TemplateException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+
 
 @WebServlet("/welcome-user")
 public class WelcomeUserServlet extends HttpServlet {
@@ -21,13 +30,18 @@ public class WelcomeUserServlet extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
 
+        Map<String, String> dataModel = new HashMap<>();
+        dataModel.put("name", name);
+
+        Template template = TemplateProvider.createTemplate(getServletContext(), "welcome-user.ftlh");
+
         PrintWriter printWriter = resp.getWriter();
 
-        printWriter.write("<DOCTYPE! html>");
-        printWriter.write("<html>");
-        printWriter.write("<body>");
-        printWriter.write("Hello " + name + "!");
-        printWriter.write("</body>");
-        printWriter.write("</html>");
+        try {
+            template.process(dataModel, printWriter);
+        } catch (TemplateException e) {
+            e.getMessage();
+            // logger.log(Level.SEVERE, e.getMessage(), e);
+        }
     }
 }
