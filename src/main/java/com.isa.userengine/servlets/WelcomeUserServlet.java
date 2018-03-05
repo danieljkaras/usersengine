@@ -30,8 +30,13 @@ public class WelcomeUserServlet extends HttpServlet {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
 
+        double salary = (double) req.getAttribute("salary");
+
+
         Map<String, String> dataModel = new HashMap<>();
         dataModel.put("name", name);
+        dataModel.put("salary", String.valueOf(salary));
+
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "welcome-user.ftlh");
 

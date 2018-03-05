@@ -1,5 +1,6 @@
 package com.isa.userengine.repository;
 
+import com.isa.userengine.domain.Gender;
 import com.isa.userengine.domain.User;
 
 
@@ -21,7 +22,9 @@ public class UsersRepository {
         user1.setId(1);
         user1.setName("Jan");
         user1.setLogin("janko");
-        user1.setAge(21);
+        user1.setAge(27);
+        user1.setGender(Gender.MAN);
+        user1.setSalary(120);
         usersRepository.add(user1);
 
         User user2 = new User();
@@ -29,6 +32,8 @@ public class UsersRepository {
         user2.setName("Adam");
         user2.setLogin("ano");
         user2.setAge(20);
+        user2.setGender(Gender.MAN);
+        user2.setSalary(90);
         usersRepository.add(user2);
 
         User user3 = new User();
@@ -36,6 +41,7 @@ public class UsersRepository {
         user3.setName("Anna");
         user3.setLogin("anmi");
         user3.setAge(20);
+        user3.setSalary(85);
         usersRepository.add(user3);
     }
 

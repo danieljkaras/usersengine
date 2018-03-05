@@ -7,6 +7,9 @@ public class User {
     private String login;
     private String password;
     private int age;
+    private int salary;
+    private Gender gender;
+
 
     public int getId() {
         return id;
@@ -47,4 +50,22 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+
 }

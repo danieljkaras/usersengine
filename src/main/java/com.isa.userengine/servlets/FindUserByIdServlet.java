@@ -1,13 +1,15 @@
 package com.isa.userengine.servlets;
 
-import com.isa.userengine.dao.UserRepositoryDaoBean;
+import com.isa.userengine.cdi.MaxPulseBean;
 import com.isa.userengine.dao.UsersRepositoryDao;
 import com.isa.userengine.domain.User;
+import com.isa.userengine.filters.SalaryIncrementFilter;
 import com.isa.usersengine.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,11 @@ public class FindUserByIdServlet extends HttpServlet {
     @EJB
     UsersRepositoryDao repositoryDao;
 
+    @Inject
+    MaxPulseBean maxPulseBean;
+
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -34,13 +41,19 @@ public class FindUserByIdServlet extends HttpServlet {
         User user = repositoryDao.getUserById(userId);
 
 
+
         if (id == null || id.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
 
 
-        Map<String, User> dataModel = new HashMap<>();
-        dataModel.put(id, user);
+        double salary = (double) req.getAttribute("salary");
+
+        Map<String, Object> dataModel = new HashMap<>();
+        dataModel.put("user", user);
+        dataModel.put("maxPulse", maxPulseBean.countMaximumPulse(user.getGender(), user.getAge()));
+        dataModel.put("salary", salary );
+
 
         Template template = TemplateProvider.createTemplate(getServletContext(), "find-user-by-id.ftlh");
 
@@ -48,7 +61,7 @@ public class FindUserByIdServlet extends HttpServlet {
 
         try {
             template.process(dataModel, printWriter);
-        } catch (TemplateException e){
+        } catch (TemplateException e) {
             e.getMessage();
         }
 
